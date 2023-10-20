@@ -6,17 +6,17 @@ class Solution {
             if(c == '('){
                 stack.push(c);
             } else {
-               if(stack.size() < 1) {
-                   return false;
-               }
-               else {
-                stack.pop();
-               }
+                if(stack.isEmpty()) {
+                    return false;
+                }
+                else {
+                    stack.pop();
+                }
             }
         }
-        if(stack.size() == 0){
+        if (stack.size() == 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
