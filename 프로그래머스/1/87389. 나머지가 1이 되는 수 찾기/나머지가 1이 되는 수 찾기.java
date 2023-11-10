@@ -1,12 +1,15 @@
 class Solution {
     public int solution(int n) {
-        int answer = 1;
-
-        while(true) {
-            if (n%answer==1) break;
-            answer++;
+        int answer = 0;
+        for(int i = 2; i < Math.sqrt(n); i++){
+            if (n % i == 1){
+                answer = i;
+                break;
+            }
         }
-
+        if (answer == 0) {
+            answer = n - 1;
+        }
         return answer;
     }
 }
