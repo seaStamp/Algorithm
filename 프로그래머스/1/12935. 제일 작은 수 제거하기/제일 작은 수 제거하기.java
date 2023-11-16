@@ -1,19 +1,12 @@
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 class Solution {
     public int[] solution(int[] arr) {
-        if (arr.length == 1){
+    	if (arr.length == 0){
             return new int[]{-1};
         }
-        
-        List<Integer> answer = new ArrayList<>();
-        for(int i : arr){
-            answer.add(i);
-        }
-        answer.remove(Collections.min(answer));
-        return answer.stream().mapToInt(i -> i).toArray();
+        int min = Arrays.stream(arr).min().getAsInt();
+        int[] answer = Arrays.stream(arr).filter(i -> i != min).toArray();
+        return answer;
     }
 }
