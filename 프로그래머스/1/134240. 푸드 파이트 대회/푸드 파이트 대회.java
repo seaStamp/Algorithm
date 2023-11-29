@@ -2,15 +2,13 @@ import java.lang.StringBuilder;
 
 class Solution {
     public String solution(int[] food) {
+        StringBuilder sb = new StringBuilder();
         StringBuilder answer = new StringBuilder();
-        StringBuilder temp = new StringBuilder();
         for(int i = 1; i < food.length; i++){
-            for(int j = 0; j < food[i]/2; j++){
-                answer.append(i);
-            }
+                sb.append(String.valueOf(i).repeat(food[i]/2));            
         }
-        temp.append(answer);
-        answer.append("0");
-        return temp.append(answer.reverse()).toString();
+        answer.append(sb);
+        sb.append("0");
+        return answer.append(sb.reverse()).toString();
     }
 }
