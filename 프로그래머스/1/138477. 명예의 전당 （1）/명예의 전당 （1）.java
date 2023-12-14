@@ -1,12 +1,17 @@
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 class Solution {
     public int[] solution(int k, int[] score) {
-        int total = score.length;
-        int[] answer = new int[total];
+        int[] answer = new int[score.length];
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        
         for(int i = 0; i < score.length; i++){
-            Arrays.sort(score, 0, i + 1);
-            answer[i] = (i < k)? score[0] : score[i + 1 - k];
+            priorityQueue.add(score[i]);
+            if (priorityQueue.size() > k){
+                priorityQueue.poll();
+            }
+            answer[i] = priorityQueue.peek();
         }
         return answer;
     }
